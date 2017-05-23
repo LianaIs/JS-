@@ -86,3 +86,11 @@ function foo (age, d) {
  "Hello world".speak();
  
  
+let counter =0; 
+ const obj ={
+   get num() {
+     ++counter;
+     return counter;
+   }
+ }
+ console.log(obj.num);
