@@ -92,3 +92,9 @@ let counter =0;
  }
  console.log(obj.num);
 
+{
+var man = 0;
+var array = [9, 1, 4, 15];
+for  (var i = 0; i < array.length; i++) {
+    man += i;
+}
