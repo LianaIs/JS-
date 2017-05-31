@@ -98,3 +98,27 @@ var array = [9, 1, 4, 15];
 for  (var i = 0; i < array.length; i++) {
     man += i;
 }
+ 
+ //
+ import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+//
+class App extends Component {
+
+constructor(p) {
+  super(p);
+  this.state = {names: ['A']};
+}
+componentDidMount() {
+  const choices = ['a', 'b', 'c', 'd'];
+  setInterval(() => {
+    const names = [...this.state.names];
+    names.push(choices[Math.floor(Math.random() *4)]);
+  },  3 * 1000);
+}
+render() {
+  const names = this.state.names.map(elem => {
+    return (<p>{elem}</p>); });
+  return (<div>{names}</div>);
+
