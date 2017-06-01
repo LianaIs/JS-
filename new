@@ -1,1 +1,73 @@
+import React, { Component } from 'react';
+import Additem from './components/additem.js';
 
+
+ export default
+ class App extends Component {
+   constructor(){
+     super();
+     this.state = {
+       items: []
+     }
+   }
+   render() {
+     console.log(this.state.items)
+     return (
+       <div className ='App'>
+        <Additem />
+        addItemFunc={(data)=>{
+          const {items} = this.state;
+          items.push(data);
+          this.setState({items});
+        }}
+        />
+       </div>
+     );
+   }
+ }
+//
+
+import React from 'react';
+
+ export default
+ class AddItem extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      text: ''
+    }
+  }
+  changeHandler = (evn) => {
+    this.setState({
+      text: evn.target.value
+    });
+  }
+  clickHandler = () => {
+
+    const {text} = this.state;
+    const name = text.split(',')[0];
+    const price = text.split(',')[1];
+    const data = {
+      name,
+      price
+    }
+    this.setState({
+      text: ''
+    })
+  }
+   render() {
+     return (
+       <div>
+        <input  type='text'
+                valu={this.state.text}
+                onChange={this.changeHandler}
+        />
+        <input
+        type='button'
+        value='Add'
+        onClick={this.state.text}
+        />
+       </div>
+     )
+   }
+ }
