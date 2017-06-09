@@ -71,3 +71,22 @@ import React from 'react';
      )
    }
  }
+ 
+ ///
+ state = {bio: '', followers: 0}
+ 
+ async componentDidMount() {
+ const req = await
+   fetch ('link');
+ const {bio, followers} = await req.json();
+    this.setState({bio, followers});
+ })
+ //.chatch (() =>)
+ }
+ render() 
+ const {bio, followers} =this.state;
+
+return (
+<div classsName='App'>
+
+)
