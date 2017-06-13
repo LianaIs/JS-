@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  //state = {};
+  //state = {img: 0};
+  state = {episodes: [], visibleEpisodes: [], startingEpisode: 0};
+  async componentDidMount() {
+    const link = 'http://api.tvmaze.com/singlesearch/shows?q=game-of-thrones&embed=episodes';
+      const fetchData = await fetch(link);
+      const data = await fetchData.json();
+      const visibleEpisodes = [];
+      const {episodes} = data._embedded;
+      for (let i=0; i<3; i++) {
+        visibleEpisodes.push(episodes[i]);
+      }
+      console.log(data);
+      this.setState({episodes: data._embedded.episodes});
+      // this.state.episodes
+  }
+  render() {
+
+  for (let i = this.state.startingEpisode; i < this.state.startingEpisode+3; i++){
+    this.state.visibleEpisodes[i].img;
+    this.setState({img: this.state.episodes[i].img});
+    this.state.img;
+    }
+
+
+    console.log(this.state.episodes);
+    return (
+      <div className="App">
+        <p>{this.state.visibleEpisodes[0].name}</p>
+        <p>{this.state.visibleEpisodes[1].name}</p>
+        <p>{this.state.visibleEpisodes[2].name}</p>
+      </div>
+    );
+  }
+}
